@@ -34,6 +34,6 @@ public class LevelOrder {
         BinaryTree tree = new BinaryTree();
         Node root = tree.BuildTree(nodes);
 
-        System.out.println(root.data);
+        // System.out.println(root.data);
     }
 }
