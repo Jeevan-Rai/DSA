@@ -66,7 +66,7 @@ public class BinTree {
     }
 
     public static void main(String[] args) {
-        int[] nodes = { 1, 2, 3, -1, -1, 4, -1, -1, 5, -1, 6, -1, -1};
+        int[] nodes = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         Node root = BuildTree.BinaryTree(nodes);
         System.out.println("\nRoot of the node is: ");
         System.out.println(root.data);
