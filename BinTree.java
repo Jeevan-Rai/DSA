@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinTree {
     static class Node {
         int data;
@@ -61,7 +64,37 @@ public class BinTree {
             postorder(root.rchild);
 
             System.out.print(root.data + " ");
-            
+
+        }
+        
+        public static void levelOrder(Node root) {
+            Queue<Node> q = new LinkedList<>();
+
+            q.add(root);
+            q.add(null);
+
+            while (!q.isEmpty()) {
+                Node curNode = q.remove();
+
+                if (curNode == null) {
+                    System.out.println();
+                    if (q.isEmpty()) {
+                        break;
+                    } else {
+                        q.add(curNode);
+                    }
+                }
+                else {
+                    System.out.print(curNode.data + " ");
+                    if (curNode.rchild != null) {
+                        q.add(curNode.rchild);
+                    }
+
+                    if (curNode.lchild != null) {
+                        q.add(curNode.lchild);
+                    }
+                }
+            }
         }
     }
 
@@ -72,11 +105,11 @@ public class BinTree {
         System.out.println(root.data);
         System.out.println("Preorder Sequence: ");
         BuildTree.preorder(root);
-        System.out.println();
-        System.out.println("Inorder Sequence: ");
+        System.out.println("\nInorder Sequence: ");
         BuildTree.inorder(root);
-        System.out.println();
-        System.out.println("Postorder Sequence: ");
+        System.out.println("\nPostorder Sequence: ");
         BuildTree.postorder(root);
+        System.out.println("\nLevel Order Sequence: ");
+        BuildTree.levelOrder(root);
     }
 }
