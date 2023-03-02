@@ -28,13 +28,21 @@ public class countOfNodes {
             return newNode;
         }
 
-        public static void NodeCount(Node root) {
+        public static int NodeCount(Node root) {
             if (root == null) {
-                return;
+                return 0;
             }
-            count++;
-            NodeCount(root.lchild);
-            NodeCount(root.rchild);
+
+
+            int lcnt = NodeCount(root.lchild);
+            int rcnt = NodeCount(root.rchild);
+
+            return lcnt + rcnt + 1;
+
+
+            // count++;
+            // NodeCount(root.lchild);
+            // NodeCount(root.rchild);
 
             // System.out.println(count);
         }
@@ -43,7 +51,7 @@ public class countOfNodes {
     public static void main(String[] args) {
         int[] nodes = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         Node root = BinaryTree.buildTree(nodes);
-        BinaryTree.NodeCount(root);
-        System.out.println(BinaryTree.count);
+        System.out.println(BinaryTree.NodeCount(root));
+        // System.out.println(BinaryTree.count);
     }
 }
